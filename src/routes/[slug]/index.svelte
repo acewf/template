@@ -3,15 +3,19 @@
     const {
       params: { slug }
     } = page;
-    return { slug };
+    let res = await this.fetch(`${slug}/page.json`);
+    const data = await res.json();
+
+    if (slug === "en" || slug === "pt") {
+      return { slug, description: data.description };
+    }
+    this.error(404, "Not Found");
   }
 </script>
 
 <script>
   export let slug;
+  export let description;
 </script>
 
-<p>
-  <strong>This is slug page</strong>
-</p>
-<a href="{slug}/news">news</a>
+<a href="{slug}/countdown">{description}</a>

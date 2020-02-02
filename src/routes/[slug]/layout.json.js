@@ -7,12 +7,14 @@ export function get(req, res) {
   }
   if (params.slug === 'pt') {
     data = {
-      title: 'Noticias em portugues'
+      title: 'titulo em português',
+      image: '/image-1.jpg'
     }
   }
   if (params.slug === 'en') {
     data = {
-      title: 'News in english'
+      title: 'Title in english',
+      image: '/image-2.png',
     }
   }
   res.writeHead(200, {

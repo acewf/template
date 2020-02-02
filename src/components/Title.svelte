@@ -5,5 +5,5 @@
   $: image = data.image || "";
 </script>
 
-<h1>Component {title}</h1>
+<h1>{title}</h1>
 <img src={image} alt="abc" />
