@@ -38,7 +38,6 @@ FROM nginx:alpine-perl
 RUN apk add --no-cache nano spawn-fcgi fcgiwrap wget curl bash
 
 COPY --from=builder /usr/src/app/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /usr/src/app/__sapper__/export /var/www/html/mysapperTest/
 COPY --from=builder /usr/src/app/__sapper__/export /var/www/html/
 
 ENV PORT 3000
