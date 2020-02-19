@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy --entry \"/en /pt\"",
+    "export": "sapper export --legacy --entry \"/404 /en /en/404 /pt /pt/404\"",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
