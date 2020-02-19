@@ -20,7 +20,7 @@ RUN apk add --update --no-cache \
   nasm \
   util-linux
 
-RUN apk add vips-tools vips fftw-dev build-base --update-cache \
+RUN apk add fftw-dev build-base --update-cache \
   --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/ \
   --repository https://alpine.global.ssl.fastly.net/alpine/edge/main \
   --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
@@ -38,6 +38,7 @@ FROM nginx:alpine-perl
 RUN apk add --no-cache nano spawn-fcgi fcgiwrap wget curl bash
 
 COPY --from=builder /usr/src/app/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /usr/src/app/__sapper__/export /var/www/html/mysapperTest/
 COPY --from=builder /usr/src/app/__sapper__/export /var/www/html/
 
 ENV PORT 3000
